@@ -1,0 +1,27 @@
+﻿<Window x:Name="ACCOUNTs_RECOVER" x:Class="ACCOUNTs_RECOVER.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ACCOUNTs_RECOVER"
+        mc:Ignorable="d"
+        Title="ACCOUNTs RECOVER" Height="139.007" Width="314.007" Background="#FF2EC90C" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="98" Margin="10,10,0,0" VerticalAlignment="Top" Width="286">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="29*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="GOOD" Content="GOOD" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="46"/>
+            <Label x:Name="BAD" Content="BAD" HorizontalAlignment="Left" Margin="61,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="35"/>
+            <Label x:Name="ERRORS" Content="ERRORS" HorizontalAlignment="Left" Margin="101,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="56"/>
+            <Label x:Name="countGood" Content="0" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="46" HorizontalContentAlignment="Center" Height="26"/>
+            <Label x:Name="countBad" Content="0" HorizontalAlignment="Left" Margin="61,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="35" Height="26"/>
+            <Label x:Name="countErrors" Content="0" HorizontalAlignment="Left" Margin="101,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="56" Height="26"/>
+            <CheckBox x:Name="checkSOCKS5" Content="SOCKS5" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="15" Width="63"/>
+            <CheckBox x:Name="checkHTTP" Content="HTTP/s" HorizontalAlignment="Left" Margin="93,11,0,0" VerticalAlignment="Top" Height="15" Width="58"/>
+            <Button x:Name="btnStart" Content="START" HorizontalAlignment="Left" Margin="174,18,0,0" VerticalAlignment="Top" Width="100" Background="#FF1D680D" Foreground="White" FontSize="18" FontFamily="Arial Black" Height="50" Click="btnStartCLICK"/>
+        </Grid>
+
+    </Grid>
+</Window>
