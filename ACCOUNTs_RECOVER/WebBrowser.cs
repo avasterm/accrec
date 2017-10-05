@@ -37,7 +37,7 @@ namespace ACCOUNTs_RECOVER
                 WEB_settings.AddArgument(string.Format("--proxy={0}", Proxy.nextProxy()));
                 WEB_settings.AddArgument(string.Format("--proxy-type={0}", Proxy.proxyTYPE));
             }
-            Console.WriteLine(Proxy.proxyTYPE + "_type");
+            //Console.WriteLine(Proxy.proxyTYPE + "_type");
             WEB_settings.HideCommandPromptWindow = true;
             //CUSTOM BROWSER OPTIONS/
             WEB_options.AddAdditionalCapability("phantomjs.page.settings.userAgent", UserAgent);
@@ -62,7 +62,7 @@ namespace ACCOUNTs_RECOVER
             __cfduid = Regex.Replace(WEB_Browser.Manage().Cookies.GetCookieNamed("__cfduid").ToString(), pat1, "$2");
             cf_clearance = Regex.Replace(WEB_Browser.Manage().Cookies.GetCookieNamed("cf_clearance").ToString(), pat2, "$2-$3-$4");
            
-          Console.WriteLine(__cfduid);
+         Console.WriteLine(__cfduid);
          Console.WriteLine(cf_clearance);
         }
         public void BrowserOpen()

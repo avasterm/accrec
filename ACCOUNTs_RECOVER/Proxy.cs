@@ -65,7 +65,7 @@ namespace ACCOUNTs_RECOVER
                             {
                                 proxy = Regex.Replace(line, proxyPat, "$1.$2.$3.$4:$5");
                                 listProxy.Add(proxy);
-                                Console.WriteLine(proxy);
+                                //Console.WriteLine(proxy);
                                 countProxy++;
 
                             }
@@ -89,8 +89,8 @@ namespace ACCOUNTs_RECOVER
                 if (countProxy == 0) { proxySettings(); }
                 currentProxy = listProxy.First().ToString();
                 listProxy.RemoveAt(0);
-                Console.WriteLine(listProxy.Count());
-                Console.WriteLine(currentProxy + "_THIS");
+              //  Console.WriteLine(listProxy.Count());
+              //  Console.WriteLine(currentProxy + "_THIS");
                 return currentProxy;
             }
             else

@@ -31,11 +31,14 @@ namespace ACCOUNTs_RECOVER
         private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
 
+
+            // checkProxyTYPE();
+
+
+            //BROWSER.BrowserOpen();
+            setRequest req = new setRequest();
+            req.SendSet();
            
-            checkProxyTYPE();
-            
-            
-           BROWSER.BrowserOpen();
         }
 
         public void checkProxyTYPE()
