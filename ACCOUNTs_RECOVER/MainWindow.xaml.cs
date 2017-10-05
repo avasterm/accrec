@@ -22,7 +22,7 @@ namespace ACCOUNTs_RECOVER
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        WebBrowser BROWSER = new WebBrowser();
         public MainWindow()
         {
            InitializeComponent();
@@ -31,7 +31,7 @@ namespace ACCOUNTs_RECOVER
         private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
 
-            WebBrowser BROWSER = new WebBrowser();
+           
             checkProxyTYPE();
             
             
@@ -58,5 +58,8 @@ namespace ACCOUNTs_RECOVER
             }
         
         }
+
     }
+
+
 }

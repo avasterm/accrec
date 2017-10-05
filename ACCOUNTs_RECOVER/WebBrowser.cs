@@ -21,12 +21,13 @@ namespace ACCOUNTs_RECOVER
         public ICookieJar WEB_cookies;
         public string __cfduid;
         public string cf_clearance;
+        public string UserAgent;
 
         public void BrowserSettings()
         {
             
             //DEFAULT BROWSER SETTINGS
-            string UserAgent = "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36";
+            UserAgent = "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36";
             WEB_settings.AddArgument(string.Format("--ignore-ssl-errors=true"));
             WEB_settings.AddArgument(string.Format("--load-images=false"));
             WEB_settings.AddArgument(string.Format("--ssl-protocol=any"));
@@ -51,7 +52,7 @@ namespace ACCOUNTs_RECOVER
         public void shoot(string name)
         {
             Screenshot ss = ((ITakesScreenshot)WEB_Browser).GetScreenshot();
-            ss.SaveAsFile(name+"_SCREENSHOT.png", ScreenshotImageFormat.Png);
+            if(ss!=null)ss.SaveAsFile(name+"_SCREENSHOT.png", ScreenshotImageFormat.Png);
         }
         public void GetCookies()
         {
@@ -77,7 +78,7 @@ namespace ACCOUNTs_RECOVER
             try
             {
                 WebDriverWait whenLoad = new WebDriverWait(WEB_Browser, TimeSpan.FromSeconds(25));
-                whenLoad.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.ClassName(" riotbar-present")));
+                whenLoad.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.ClassName("riotbar-present")));
                 shoot("GOOD");
                 GetCookies();
                 WEB_Browser.Quit();
