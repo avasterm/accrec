@@ -37,8 +37,8 @@ namespace ACCOUNTs_RECOVER
                 WEB_settings.AddArgument(string.Format("--proxy-type={0}", Proxy.proxyTYPE));
             }
             Console.WriteLine(Proxy.proxyTYPE + "_type");
-            //WEB_settings.HideCommandPromptWindow = true;
-            //CUSTOM BROWSER OPTIONS
+            WEB_settings.HideCommandPromptWindow = true;
+            //CUSTOM BROWSER OPTIONS/
             WEB_options.AddAdditionalCapability("phantomjs.page.settings.userAgent", UserAgent);
 
  
