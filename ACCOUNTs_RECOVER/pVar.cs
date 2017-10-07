@@ -10,11 +10,11 @@ namespace ACCOUNTs_RECOVER
 {
    public static class pVar
     {
+        public static string mainAction { get; set; }
         public static ProxyType proxTyp { get; set; }
 
 
         public static int countGOOD;
-        public static int countBAD;
         public static int countERROR;
         public static string __cfduid;
         public static string cf_clearance;

@@ -12,16 +12,15 @@ namespace ACCOUNTs_RECOVER
 
         public static void DO(string __cfduid, string cf_clearance)
         {
-            string login = Logins.nextLogin();
-            Console.WriteLine(__cfduid);
-            Console.WriteLine(cf_clearance);
-            Console.WriteLine(login);
-            xNetRequest REQ = new xNetRequest();
-            REQ.sendReq("LOGIN", login, __cfduid, cf_clearance);
-        }
-        public void PASS ()
-        {
-            BROWSER.BrowserOpen();
+
+            pVar.currentLogin = Logins.nextLogin();
+            xNetRequest.sendReq(pVar.mainAction, pVar.currentLogin, __cfduid, cf_clearance);
+            
+            
+            
+            //Console.WriteLine(__cfduid);
+            //Console.WriteLine(cf_clearance);
+            //Console.WriteLine(login);
         }
     }
 }

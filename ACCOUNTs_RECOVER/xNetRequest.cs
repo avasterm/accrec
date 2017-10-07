@@ -18,14 +18,14 @@ namespace ACCOUNTs_RECOVER
     }
     public class xNetRequest
     {
-        MainWindow main = new MainWindow();
-        public string result { get; set; }
-        string response { get; set; }
-        public ProxyClient proxyClient { get; set; }
-        public Uri uri { get; set; }
-        public string paramReq { get; set; }
         
-        public void sendReq(string action, string LoginEmail, string __cfduid, string cf_clearance)
+        public static string result { get; set; }
+        public static string response { get; set; }
+        public static ProxyClient proxyClient { get; set; }
+        public static Uri uri { get; set; }
+        public static string paramReq { get; set; }
+        
+        public static void sendReq(string action, string LoginEmail, string __cfduid, string cf_clearance)
         {
             if (action == "LOGIN")
             {
@@ -37,8 +37,6 @@ namespace ACCOUNTs_RECOVER
                 paramReq = "email";
                 uri = new Uri("https://account.leagueoflegends.com/recover/username");
             }
-
-
 
             if (mProxy.proxyTYPE != "none")
             {
@@ -85,17 +83,12 @@ namespace ACCOUNTs_RECOVER
                     request.Cookies.IsLocked = true;
                     Console.WriteLine(request.Cookies);
                     result = request.Post("https://account.leagueoflegends.com/recover/username").ToString();
-
-                    //Console.WriteLine(result);
-
-                    //Console.WriteLine(response);
                     JsonS jsons = JsonConvert.DeserializeObject<JsonS>(result);
 
+                    MainWindow main = new MainWindow();
                     main.showResult(jsons.Success);
 
                     Console.WriteLine("RESULT: " + jsons.Success);
-                    Console.WriteLine(jsons.message);
-
                 }
 
             }

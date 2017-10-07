@@ -28,19 +28,14 @@ namespace ACCOUNTs_RECOVER
         {
            InitializeComponent();
             pVar.countGOOD = 0;
-            pVar.countBAD = 0;
             pVar.countERROR = 0;
         }
        
         private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
             checkProxyTYPE();
-            mProxy.currentProxy = mProxy.nextProxy();
-            xNetRequest XNET = new xNetRequest();
-            //XNET.sendReq();
-            //checkProxyTYPE();
-           // Logins.Load();
-           // BROWSER.BrowserOpen();
+            Logins.Load();
+            BROWSER.BrowserOpen();
         }
 
         public void checkProxyTYPE()
@@ -79,16 +74,11 @@ namespace ACCOUNTs_RECOVER
             }
             else if (Success == false)
             {
-                pVar.countBAD++;
-                countBad.Content = pVar.countBAD.ToString();
-                status = "BAD";
-            }
-            else
-            {
                 pVar.countERROR++;
                 countErrors.Content = pVar.countERROR.ToString();
                 status = "ERROR";
             }
+
 
             writeLineToFile(status, pVar.currentLogin);
         }
