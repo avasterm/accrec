@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Net;
+using xNet;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -34,11 +34,13 @@ namespace ACCOUNTs_RECOVER
        
         private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
-            
-
             checkProxyTYPE();
-            Logins.Load();
-            BROWSER.BrowserOpen();
+            mProxy.currentProxy = mProxy.nextProxy();
+            xNetRequest XNET = new xNetRequest();
+            //XNET.sendReq();
+            //checkProxyTYPE();
+           // Logins.Load();
+           // BROWSER.BrowserOpen();
         }
 
         public void checkProxyTYPE()
@@ -46,17 +48,20 @@ namespace ACCOUNTs_RECOVER
             //Proxy PROXY = new Proxy();
             if (checkSOCKS5.IsChecked == false && checkHTTP.IsChecked == false)
             {
-                Proxy.proxyTYPE = "none";
+                mProxy.proxyTYPE = "none";
             }
             else
             {
                 if (checkSOCKS5.IsChecked == true)
                 {
-                    Proxy.proxyTYPE = "socks5";
+                    mProxy.proxyTYPE = "socks5";
+                    pVar.proxTyp = ProxyType.Socks5;
+
                 }
                 if (checkHTTP.IsChecked == true)
                 {
-                    Proxy.proxyTYPE = "https";
+                    pVar.proxTyp = ProxyType.Http;
+                    mProxy.proxyTYPE = "https";
                 }
             }
         

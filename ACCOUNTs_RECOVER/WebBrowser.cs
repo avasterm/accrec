@@ -30,10 +30,10 @@ namespace ACCOUNTs_RECOVER
             WEB_settings.AddArgument(string.Format("--load-images=false"));
             WEB_settings.AddArgument(string.Format("--ssl-protocol=any"));
             WEB_settings.AddArgument(string.Format("--web-security=false"));
-            if (Proxy.proxyTYPE != "none")
+            if (mProxy.proxyTYPE != "none")
             {
-                WEB_settings.AddArgument(string.Format("--proxy={0}", Proxy.nextProxy()));
-                WEB_settings.AddArgument(string.Format("--proxy-type={0}", Proxy.proxyTYPE));
+                WEB_settings.AddArgument(string.Format("--proxy={0}", mProxy.nextProxy()));
+                WEB_settings.AddArgument(string.Format("--proxy-type={0}", mProxy.proxyTYPE));
             }
             //Console.WriteLine(Proxy.proxyTYPE + "_type");
             //WEB_settings.HideCommandPromptWindow = true;

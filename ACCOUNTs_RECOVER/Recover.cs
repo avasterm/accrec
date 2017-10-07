@@ -16,8 +16,8 @@ namespace ACCOUNTs_RECOVER
             Console.WriteLine(__cfduid);
             Console.WriteLine(cf_clearance);
             Console.WriteLine(login);
-            sendRequest REQ = new sendRequest();
-            REQ.sendReq("PASS", login, __cfduid, cf_clearance);
+            xNetRequest REQ = new xNetRequest();
+            REQ.sendReq("LOGIN", login, __cfduid, cf_clearance);
         }
         public void PASS ()
         {

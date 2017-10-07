@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using xNet;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,9 @@ namespace ACCOUNTs_RECOVER
 {
    public static class pVar
     {
+        public static ProxyType proxTyp { get; set; }
+
+
         public static int countGOOD;
         public static int countBAD;
         public static int countERROR;

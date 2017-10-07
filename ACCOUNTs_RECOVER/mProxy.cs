@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ACCOUNTs_RECOVER
 {
-    class Proxy
+    class mProxy
     {
         public static string proxyTYPE;
         public static StreamReader sr_proxy;

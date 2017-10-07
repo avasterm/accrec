@@ -59,6 +59,11 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="xNet, Version=3.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\xNet.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -66,12 +71,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Logins.cs" />
-    <Compile Include="Proxy.cs" />
+    <Compile Include="mProxy.cs" />
     <Compile Include="pVar.cs" />
     <Compile Include="Recover.cs" />
-    <Compile Include="sendRequest.cs" />
     <Compile Include="setRequest.cs" />
     <Compile Include="WebBrowser.cs" />
+    <Compile Include="xNetRequest.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
