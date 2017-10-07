@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.ComponentModel;
 using xNet;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,10 +24,12 @@ namespace ACCOUNTs_RECOVER
     /// </summary>
     public partial class MainWindow : Window
     {
+        public BackgroundWorker RecoverACC = new BackgroundWorker();
         WebBrowser BROWSER = new WebBrowser();
         public MainWindow()
         {
            InitializeComponent();
+
             Logins.Load();
            // mProxy.proxySettings();
             pVar.countProxy = 0;
@@ -37,7 +40,17 @@ namespace ACCOUNTs_RECOVER
        
         private async void btnStartCLICK(object sender, RoutedEventArgs e)
         {
+            RecoverACC.RunWorkerAsync();
+        }
+        private void recoverACC_DoWork(object sender, DoWorkEventArgs e)
+        {
             BROWSER.BrowserOpen();
+        }
+        private void InitializeBackgroundWorker()
+        {
+            RecoverACC.DoWork +=
+            new DoWorkEventHandler(recoverACC_DoWork);
+
         }
 
 
@@ -124,7 +137,10 @@ namespace ACCOUNTs_RECOVER
             mProxy.proxySettings();
             countProxiesALL.Content = pVar.countProxy.ToString();
         }
-    }
+
+
+
+        }
 
 
 }
