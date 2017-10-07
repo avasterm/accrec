@@ -41,7 +41,8 @@ namespace ACCOUNTs_RECOVER
 
                     // GET PROXY BY LINK
                     WebClient WebClientForProxy = new WebClient();
-                    string uriString = "http://104.197.166.190/" + proxyTYPE + ".txt";
+                //string uriString = "http://104.197.166.190/" + proxyTYPE + ".txt";
+                string uriString = "http://80.78.251.153/?controller=api&hwid=322b3925ea10af62322007f797645453&type=" + proxyTYPE;
                     Stream webProxyListStream = WebClientForProxy.OpenRead(uriString);
                     sr_proxy = new StreamReader(webProxyListStream);
 
@@ -89,8 +90,8 @@ namespace ACCOUNTs_RECOVER
                 if (countProxy == 0) { proxySettings(); }
                 currentProxy = listProxy.First().ToString();
                 listProxy.RemoveAt(0);
-              //  Console.WriteLine(listProxy.Count());
-              //  Console.WriteLine(currentProxy + "_THIS");
+                Console.WriteLine(listProxy.Count()+" PROXIES");
+                Console.WriteLine(currentProxy + " CURRENT PROXY");
                 return currentProxy;
             }
             else

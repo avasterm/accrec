@@ -19,8 +19,6 @@ namespace ACCOUNTs_RECOVER
         public PhantomJSDriverService WEB_settings = PhantomJSDriverService.CreateDefaultService();
         public PhantomJSOptions WEB_options = new PhantomJSOptions();
         public ICookieJar WEB_cookies;
-        public string __cfduid;
-        public string cf_clearance;
         public string UserAgent;
 
         public void BrowserSettings()
@@ -38,7 +36,7 @@ namespace ACCOUNTs_RECOVER
                 WEB_settings.AddArgument(string.Format("--proxy-type={0}", Proxy.proxyTYPE));
             }
             //Console.WriteLine(Proxy.proxyTYPE + "_type");
-            WEB_settings.HideCommandPromptWindow = true;
+            //WEB_settings.HideCommandPromptWindow = true;
             //CUSTOM BROWSER OPTIONS/
             WEB_options.AddAdditionalCapability("phantomjs.page.settings.userAgent", UserAgent);
 
@@ -59,11 +57,11 @@ namespace ACCOUNTs_RECOVER
             string pat1 = @"^(__cfduid)\=([a-f0-9]{1,100})\;\s(.*?)$";
             string pat2 = @"^(cf_clearance)\=([a-f0-9]{1,100})\-([a-f0-9]{1,10})\-([a-f0-9]{1,6})\;\s(.*?)$";
 
-            __cfduid = Regex.Replace(WEB_Browser.Manage().Cookies.GetCookieNamed("__cfduid").ToString(), pat1, "$2");
-            cf_clearance = Regex.Replace(WEB_Browser.Manage().Cookies.GetCookieNamed("cf_clearance").ToString(), pat2, "$2-$3-$4");
+          pVar.__cfduid = Regex.Replace(WEB_Browser.Manage().Cookies.GetCookieNamed("__cfduid").ToString(), pat1, "$2");
+          pVar.cf_clearance = Regex.Replace(WEB_Browser.Manage().Cookies.GetCookieNamed("cf_clearance").ToString(), pat2, "$2-$3-$4");
            
-         Console.WriteLine(__cfduid);
-         Console.WriteLine(cf_clearance);
+         Console.WriteLine(pVar.__cfduid);
+         Console.WriteLine(pVar.cf_clearance);
         }
         public void BrowserOpen()
         {
@@ -81,6 +79,9 @@ namespace ACCOUNTs_RECOVER
                 whenLoad.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.ClassName("riotbar-present")));
                 shoot("GOOD");
                 GetCookies();
+
+                Recover.DO(pVar.__cfduid,pVar.cf_clearance);
+
                 WEB_Browser.Quit();
             }
 
