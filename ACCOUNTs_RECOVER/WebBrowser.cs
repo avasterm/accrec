@@ -35,7 +35,7 @@ namespace ACCOUNTs_RECOVER
                 WEB_settings.AddArgument(string.Format("--proxy={0}", mProxy.nextProxy()));
                 WEB_settings.AddArgument(string.Format("--proxy-type={0}", mProxy.proxyTYPE));
             }
-            //Console.WriteLine(Proxy.proxyTYPE + "_type");
+            Console.WriteLine(mProxy.proxyTYPE + "_type");
             //WEB_settings.HideCommandPromptWindow = true;
             //CUSTOM BROWSER OPTIONS/
             WEB_options.AddAdditionalCapability("phantomjs.page.settings.userAgent", UserAgent);
@@ -72,10 +72,12 @@ namespace ACCOUNTs_RECOVER
             }
 
             BrowserSettings();
-            WEB_Browser.Navigate().GoToUrl("https://account.leagueoflegends.com/na/en/forgot-password");
+           
             try
             {
-                WebDriverWait whenLoad = new WebDriverWait(WEB_Browser, TimeSpan.FromSeconds(25));
+                Console.WriteLine("here");
+                WEB_Browser.Navigate().GoToUrl("https://account.leagueoflegends.com/na/en/forgot-password");
+                WebDriverWait whenLoad = new WebDriverWait(WEB_Browser, TimeSpan.FromSeconds(65));
                 whenLoad.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.ClassName("riotbar-present")));
                 shoot("GOOD");
                 GetCookies();

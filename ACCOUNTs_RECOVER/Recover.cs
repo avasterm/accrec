@@ -14,6 +14,7 @@ namespace ACCOUNTs_RECOVER
         {
 
             pVar.currentLogin = Logins.nextLogin();
+            Console.WriteLine(pVar.currentLogin + "CURRREEENT");
             xNetRequest.sendReq(pVar.mainAction, pVar.currentLogin, __cfduid, cf_clearance);
             
             

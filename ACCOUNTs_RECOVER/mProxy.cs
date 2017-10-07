@@ -14,30 +14,14 @@ namespace ACCOUNTs_RECOVER
         public static string proxyTYPE;
         public static StreamReader sr_proxy;
         public static List<string> listProxy = new List<string>();
-        public static long countProxy;
+        
         public static string currentProxy;
-
-        public static void chooseProxyType()
-        {
-            if (proxyTYPE == "none")
-            {
-                Console.WriteLine("NO proxy");
-            }
-            if (proxyTYPE == "socks5")
-            {
-                Console.WriteLine("SOCKS5 PROXY");
-            }
-            if (proxyTYPE == "https")
-            {
-                Console.WriteLine("HTTP proxy");
-            }
-        }
         public static void proxySettings()
         {
-            
+
+
             if (proxyTYPE != "none")
             {
-                countProxy = listProxy.LongCount();
 
                     // GET PROXY BY LINK
                     WebClient WebClientForProxy = new WebClient();
@@ -67,7 +51,7 @@ namespace ACCOUNTs_RECOVER
                                 proxy = Regex.Replace(line, proxyPat, "$1.$2.$3.$4:$5");
                                 listProxy.Add(proxy);
                                 //Console.WriteLine(proxy);
-                                countProxy++;
+                                pVar.countProxy++;
 
                             }
 
@@ -86,8 +70,8 @@ namespace ACCOUNTs_RECOVER
         {
             if (proxyTYPE != "none")
             {
-                countProxy = listProxy.LongCount();
-                if (countProxy == 0) { proxySettings(); }
+                pVar.countProxy = listProxy.LongCount();
+                if (pVar.countProxy == 0) { proxySettings(); }
                 currentProxy = listProxy.First().ToString();
                 listProxy.RemoveAt(0);
                 Console.WriteLine(listProxy.Count()+" PROXIES");

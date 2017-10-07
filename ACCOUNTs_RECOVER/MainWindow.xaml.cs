@@ -27,40 +27,20 @@ namespace ACCOUNTs_RECOVER
         public MainWindow()
         {
            InitializeComponent();
+            Logins.Load();
+           // mProxy.proxySettings();
+            pVar.countProxy = 0;
             pVar.countGOOD = 0;
             pVar.countERROR = 0;
+            pVar.countCURRENT = 0;
         }
        
-        private void btnStartCLICK(object sender, RoutedEventArgs e)
+        private async void btnStartCLICK(object sender, RoutedEventArgs e)
         {
-            checkProxyTYPE();
-            Logins.Load();
             BROWSER.BrowserOpen();
         }
 
-        public void checkProxyTYPE()
-        {
-            //Proxy PROXY = new Proxy();
-            if (checkSOCKS5.IsChecked == false && checkHTTPs.IsChecked == false)
-            {
-                mProxy.proxyTYPE = "none";
-            }
-            else
-            {
-                if (checkSOCKS5.IsChecked == true)
-                {
-                    mProxy.proxyTYPE = "socks5";
-                    pVar.proxTyp = ProxyType.Socks5;
 
-                }
-                if (checkHTTPs.IsChecked == true)
-                {
-                    pVar.proxTyp = ProxyType.Http;
-                    mProxy.proxyTYPE = "https";
-                }
-            }
-        
-        }
 
         public void showResult(bool Success)
         {
@@ -69,13 +49,13 @@ namespace ACCOUNTs_RECOVER
             if (Success == true)
             {
                 pVar.countGOOD++;
-                countGood.Content = pVar.countGOOD.ToString();
+                this.countGood.Content = pVar.countGOOD;
                 status = "GOOD";
             }
             else if (Success == false)
             {
                 pVar.countERROR++;
-                countErrors.Content = pVar.countERROR.ToString();
+                this.countErrors.Content = pVar.countERROR;
                 status = "ERROR";
             }
 
@@ -94,6 +74,55 @@ namespace ACCOUNTs_RECOVER
                 file.WriteLine(line);
             }
 
+        }
+
+        private void reqLogins_Checked(object sender, RoutedEventArgs e)
+        {
+            pVar.mainAction = "EMAILS";
+            Logins.Load();
+            countAll.Content = pVar.countALL;
+       
+        }
+
+        private void reqPasswords_Checked(object sender, RoutedEventArgs e)
+        {
+            pVar.mainAction = "LOGINS";
+            Logins.Load();
+            countAll.Content = pVar.countALL;
+           
+        }
+
+        private void checkNONE_Checked(object sender, RoutedEventArgs e)
+        {
+            mProxy.proxyTYPE = "none";
+            Console.WriteLine("none");
+            pVar.countProxy = 0;
+            countProxiesALL.Content = pVar.countProxy.ToString();
+        }
+
+
+        private void checkSOCKS5_Checked(object sender, RoutedEventArgs e)
+        {
+            mProxy.proxyTYPE = "socks5";
+            Console.WriteLine("socks5");
+            mProxy.proxySettings();
+            countProxiesALL.Content = pVar.countProxy.ToString();
+        }
+
+        private void checkSOCKS4_Checked(object sender, RoutedEventArgs e)
+        {
+            mProxy.proxyTYPE = "socks4";
+            Console.WriteLine("socks4");
+            mProxy.proxySettings();
+            countProxiesALL.Content = pVar.countProxy.ToString();
+        }
+
+        private void checkHTTPs_Checked(object sender, RoutedEventArgs e)
+        {
+            mProxy.proxyTYPE = "https";
+            Console.WriteLine("https");
+            mProxy.proxySettings();
+            countProxiesALL.Content = pVar.countProxy.ToString();
         }
     }
 

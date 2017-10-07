@@ -27,35 +27,41 @@ namespace ACCOUNTs_RECOVER
         
         public static void sendReq(string action, string LoginEmail, string __cfduid, string cf_clearance)
         {
-            if (action == "LOGIN")
+            MainWindow main = new MainWindow();
+            if (action == "LOGINS")
             {
                 paramReq = "accountname";
                 uri = new Uri("https://account.leagueoflegends.com/recover/password");
             }
-            else if(action == "EMAIL")
+            else if(action == "EMAILS")
             {
                 paramReq = "email";
                 uri = new Uri("https://account.leagueoflegends.com/recover/username");
             }
 
-            if (mProxy.proxyTYPE != "none")
-            {
-                string[] proxy = mProxy.currentProxy.Split(':');
 
-                if (pVar.proxTyp == ProxyType.Http)
-                    proxyClient = new HttpProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
-                else if (pVar.proxTyp == ProxyType.Socks4)
-                    proxyClient = new Socks4ProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
-                else if (pVar.proxTyp == ProxyType.Socks5)
-                    proxyClient = new Socks5ProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
-            }
 
             try
             {
+
                 //Thread.Sleep(5000);
                 using (var request = new HttpRequest())
                 {
-                    if (mProxy.proxyTYPE != "none") request.Proxy = proxyClient;
+                    if (mProxy.proxyTYPE != "none")
+                    {
+                        string[] proxy = mProxy.currentProxy.Split(':');
+
+                        if (pVar.proxTyp == ProxyType.Http)
+                            proxyClient = new HttpProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
+                        else if (pVar.proxTyp == ProxyType.Socks4)
+                            proxyClient = new Socks4ProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
+                        else if (pVar.proxTyp == ProxyType.Socks5)
+                            proxyClient = new Socks5ProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
+
+                        request.Proxy = proxyClient;
+                    }
+
+                   
 
                     request.UserAgent = "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36";
                     request.KeepAlive = true;
@@ -68,7 +74,7 @@ namespace ACCOUNTs_RECOVER
                         .AddHeader("X-NewRelic-ID", "UA4OVVRUGwEDVllXDgA=")
                         .AddHeader("Origin", "https://account.leagueoflegends.com")
                         .AddHeader("X-Requested-With", "XMLHttpRequest")
-                        .AddHeader(HttpHeader.ContentType, "application/x-www-form-urlencoded")
+                        //.AddHeader(HttpHeader.ContentType, "application/x-www-form-urlencoded")
                         .AddHeader(HttpHeader.ContentEncoding, "gzip, deflate, br")
                         .AddHeader(HttpHeader.AcceptLanguage, "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
 
@@ -82,10 +88,10 @@ namespace ACCOUNTs_RECOVER
 
                     request.Cookies.IsLocked = true;
                     Console.WriteLine(request.Cookies);
-                    result = request.Post("https://account.leagueoflegends.com/recover/username").ToString();
+                    result = request.Post(uri).ToString();
                     JsonS jsons = JsonConvert.DeserializeObject<JsonS>(result);
 
-                    MainWindow main = new MainWindow();
+                    
                     main.showResult(jsons.Success);
 
                     Console.WriteLine("RESULT: " + jsons.Success);

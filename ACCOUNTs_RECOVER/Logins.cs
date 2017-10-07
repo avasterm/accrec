@@ -11,8 +11,12 @@ namespace ACCOUNTs_RECOVER
     {
         public static void Load()
         {
-            pVar.sr_logins = new StreamReader(@"logins.txt");
 
+             pVar.countALL = 0;
+             if(pVar.listLogins!=null) pVar.listLogins.Clear();
+
+
+            pVar.sr_logins = new StreamReader(@""+pVar.mainAction+".txt");
             using (pVar.sr_logins)
             {
 
@@ -24,15 +28,16 @@ namespace ACCOUNTs_RECOVER
                         login = line;
                         pVar.listLogins.Add(login);
                        // Console.WriteLine(login);
-                        pVar.countLogins++;
+                        pVar.countALL++;
                 }
             }
+
         }
 
         public static string nextLogin()
         {
-            pVar.countLogins = pVar.listLogins.LongCount();
-            if (pVar.countLogins != 0)
+            pVar.countALL = pVar.listLogins.LongCount();
+            if (pVar.countALL != 0)
             {
                 pVar.currentLogin = pVar.listLogins.First().ToString();
                 pVar.listLogins.RemoveAt(0);
