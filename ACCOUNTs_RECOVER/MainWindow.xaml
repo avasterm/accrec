@@ -5,23 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ACCOUNTs_RECOVER"
         mc:Ignorable="d"
-        Title="ACCOUNTs RECOVER" Height="139.007" Width="314.007" Background="#FF2EC90C" ResizeMode="CanMinimize">
+        Title="ACCOUNTs RECOVER" Height="199.365" Width="332.297" Background="#FF2EC90C" ResizeMode="CanMinimize">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="98" Margin="10,10,0,0" VerticalAlignment="Top" Width="286">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="306">
             <Grid.RowDefinitions>
                 <RowDefinition Height="29*"/>
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="GOOD" Content="GOOD" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="46"/>
-            <Label x:Name="BAD" Content="BAD" HorizontalAlignment="Left" Margin="61,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="35"/>
-            <Label x:Name="ERRORS" Content="ERRORS" HorizontalAlignment="Left" Margin="101,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="56"/>
-            <Label x:Name="countGood" Content="0" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="46" HorizontalContentAlignment="Center" Height="26"/>
-            <Label x:Name="countBad" Content="0" HorizontalAlignment="Left" Margin="61,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="35" Height="26"/>
-            <Label x:Name="countErrors" Content="0" HorizontalAlignment="Left" Margin="101,57,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="56" Height="26"/>
-            <CheckBox x:Name="checkSOCKS5" Content="SOCKS5" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="15" Width="63"/>
-            <CheckBox x:Name="checkHTTP" Content="HTTP/s" HorizontalAlignment="Left" Margin="93,11,0,0" VerticalAlignment="Top" Height="15" Width="58"/>
-            <Button x:Name="btnStart" Content="START" HorizontalAlignment="Left" Margin="174,18,0,0" VerticalAlignment="Top" Width="100" Background="#FF1D680D" Foreground="White" FontSize="18" FontFamily="Arial Black" Height="50" Click="btnStartCLICK"/>
+            <Label x:Name="GOOD" Content="GOOD" HorizontalAlignment="Left" Margin="69,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="65" HorizontalContentAlignment="Center"/>
+            <Label x:Name="ERRORS" Content="ERRORS" HorizontalAlignment="Left" Margin="150,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="65" HorizontalContentAlignment="Center"/>
+            <Label x:Name="countGood" Content="0" HorizontalAlignment="Left" Margin="69,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="65" HorizontalContentAlignment="Center" Height="26"/>
+            <Label x:Name="countErrors" Content="0" HorizontalAlignment="Left" Margin="151,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="65" Height="26"/>
+            <Button x:Name="btnStart" Content="START" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="82" Background="#FF1D680D" Foreground="White" FontSize="14" FontFamily="Arial Black" Height="36" Click="btnStartCLICK" Grid.RowSpan="2"/>
+            <Label x:Name="ERRORS_Copy" Content="BAD PROX" HorizontalAlignment="Left" Margin="220,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="73"/>
+            <Label x:Name="countBadProx" Content="0" HorizontalAlignment="Left" Margin="221,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="73" Height="26"/>
+            <Label x:Name="GOOD_Copy" Content="ALL" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="65" HorizontalContentAlignment="Center"/>
+            <Label x:Name="countAll" Content="0" HorizontalAlignment="Left" Margin="4,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="65" HorizontalContentAlignment="Center" Height="26"/>
+            <Viewbox Margin="75,5,98,112" Stretch="Fill">
+                <Grid Height="15" Width="133">
+                    <RadioButton x:Name="reqPasswords" Content="Passwords" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+                    <RadioButton x:Name="reqLogins" Content="Logins" HorizontalAlignment="Left" Margin="79,0,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </Viewbox>
+            <Label x:Name="labelRecover" Content="RECOVER:" HorizontalAlignment="Left" Margin="4,-1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Viewbox Margin="10,79,74,38" Stretch="Fill">
+                <Grid Height="15" Width="222">
+                    <RadioButton x:Name="checkSOCKS5" Content="Socks5" VerticalAlignment="Top" IsChecked="True" Margin="54,0,113,0"/>
+
+                    <RadioButton x:Name="checkHTTPs" Content="Https" HorizontalAlignment="Left" Margin="174,0,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="checkSOCKS4" Content="Socks4" VerticalAlignment="Top" IsChecked="True" Margin="114,0,53,0"/>
+                    <RadioButton x:Name="checkNONE" Content="None" VerticalAlignment="Top" IsChecked="True" Margin="0,0,167,0"/>
+                </Grid>
+            </Viewbox>
+            <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Left" Margin="211,109,0,0" VerticalAlignment="Top" Width="82" Background="#FF6C1900" Foreground="White" FontSize="14" FontFamily="Arial Black" Height="36" Click="btnStartCLICK" Grid.RowSpan="2"/>
+            <Button x:Name="btnPause" Content="PAUSE" HorizontalAlignment="Left" Margin="110,109,0,0" VerticalAlignment="Top" Width="82" Background="Black" Foreground="White" FontSize="14" FontFamily="Arial Black" Height="36" Click="btnStartCLICK" Grid.RowSpan="2"/>
+            <Label x:Name="countAllProx" Content="0" HorizontalAlignment="Left" Margin="246,73,0,0" VerticalAlignment="Top" Foreground="Red" HorizontalContentAlignment="Center" Width="50"/>
         </Grid>
+
 
     </Grid>
 </Window>

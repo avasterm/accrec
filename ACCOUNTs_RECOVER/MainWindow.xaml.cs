@@ -41,7 +41,7 @@ namespace ACCOUNTs_RECOVER
         public void checkProxyTYPE()
         {
             //Proxy PROXY = new Proxy();
-            if (checkSOCKS5.IsChecked == false && checkHTTP.IsChecked == false)
+            if (checkSOCKS5.IsChecked == false && checkHTTPs.IsChecked == false)
             {
                 mProxy.proxyTYPE = "none";
             }
@@ -53,7 +53,7 @@ namespace ACCOUNTs_RECOVER
                     pVar.proxTyp = ProxyType.Socks5;
 
                 }
-                if (checkHTTP.IsChecked == true)
+                if (checkHTTPs.IsChecked == true)
                 {
                     pVar.proxTyp = ProxyType.Http;
                     mProxy.proxyTYPE = "https";
