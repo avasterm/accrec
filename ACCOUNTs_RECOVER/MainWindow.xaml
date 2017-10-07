@@ -16,15 +16,15 @@
                 <RowDefinition Height="29*"/>
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <Label x:Name="GOOD" Content="GOOD" HorizontalAlignment="Left" Margin="69,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="65" HorizontalContentAlignment="Center"/>
-            <Label x:Name="ERRORS" Content="ERRORS" HorizontalAlignment="Left" Margin="150,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="65" HorizontalContentAlignment="Center"/>
-            <Label x:Name="countGood" Content="0" HorizontalAlignment="Left" Margin="69,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="65" HorizontalContentAlignment="Center" Height="26"/>
-            <Label x:Name="countErrors" Content="0" HorizontalAlignment="Left" Margin="151,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="65" Height="26"/>
+            <Label x:Name="GOOD" Content="GOOD" HorizontalAlignment="Left" Margin="100,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="45" HorizontalContentAlignment="Center"/>
+            <Label x:Name="ERRORS" Content="ERRORS" HorizontalAlignment="Left" Margin="150,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="58" HorizontalContentAlignment="Center"/>
+            <Label x:Name="countGood" Content="0" HorizontalAlignment="Left" Margin="100,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.47,0.498" FontWeight="Bold" Width="45" HorizontalContentAlignment="Center" Height="26"/>
+            <Label x:Name="countErrors" Content="0" HorizontalAlignment="Left" Margin="150,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="58" Height="26"/>
             <Button x:Name="btnStart" Content="START" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" Width="82" Background="#FF1D680D" Foreground="White" FontSize="14" FontFamily="Arial Black" Height="36" Click="btnStartCLICK" Grid.RowSpan="2"/>
-            <Label x:Name="ERRORS_Copy" Content="BAD PROX" HorizontalAlignment="Left" Margin="220,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="73"/>
-            <Label x:Name="countBadProx" Content="0" HorizontalAlignment="Left" Margin="221,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="73" Height="26"/>
-            <Label x:Name="GOOD_Copy" Content="ALL" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="65" HorizontalContentAlignment="Center"/>
-            <Label x:Name="countAll" Content="0" HorizontalAlignment="Left" Margin="4,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="65" HorizontalContentAlignment="Center" Height="26"/>
+            <Label x:Name="BADPROXY" Content="BAD PROXIES:" HorizontalAlignment="Left" Margin="213,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="57" FontSize="7"/>
+            <Label x:Name="countBadProxies" Content="0" HorizontalAlignment="Left" Margin="270,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="36" FontSize="7"/>
+            <Label x:Name="ALL" Content="ALL" HorizontalAlignment="Left" Margin="0,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="45" HorizontalContentAlignment="Center"/>
+            <Label x:Name="countAll" Content="0" HorizontalAlignment="Left" Margin="0,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="45" HorizontalContentAlignment="Center" Height="26"/>
             <Viewbox Margin="75,5,98,112" Stretch="Fill">
                 <Grid Height="15" Width="133">
                     <RadioButton x:Name="reqPasswords" Content="Passwords" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
@@ -43,7 +43,10 @@
             </Viewbox>
             <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Left" Margin="211,109,0,0" VerticalAlignment="Top" Width="82" Background="#FF6C1900" Foreground="White" FontSize="14" FontFamily="Arial Black" Height="36" Click="btnStartCLICK" Grid.RowSpan="2"/>
             <Button x:Name="btnPause" Content="PAUSE" HorizontalAlignment="Left" Margin="110,109,0,0" VerticalAlignment="Top" Width="82" Background="Black" Foreground="White" FontSize="14" FontFamily="Arial Black" Height="36" Click="btnStartCLICK" Grid.RowSpan="2"/>
-            <Label x:Name="countAllProx" Content="0" HorizontalAlignment="Left" Margin="246,73,0,0" VerticalAlignment="Top" Foreground="Red" HorizontalContentAlignment="Center" Width="50"/>
+            <Label x:Name="NOW" Content="NOW" HorizontalAlignment="Left" Margin="50,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Height="26" Width="45" HorizontalContentAlignment="Center"/>
+            <Label x:Name="countCurrent" Content="0" HorizontalAlignment="Left" Margin="50,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.47,0.498" FontWeight="Bold" Width="45" HorizontalContentAlignment="Center" Height="26"/>
+            <Label x:Name="ALLPROXY" Content="ALL PROXIES:" HorizontalAlignment="Left" Margin="213,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" Width="57" FontSize="7"/>
+            <Label x:Name="countAllProxies" Content="0" HorizontalAlignment="Left" Margin="270,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.451,0.601" FontWeight="Bold" HorizontalContentAlignment="Center" Width="36" FontSize="7"/>
         </Grid>
 
 
