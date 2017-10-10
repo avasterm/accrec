@@ -24,7 +24,6 @@ namespace ACCOUNTs_RECOVER
     /// </summary>
     public partial class MainWindow : Window
     {
-        public BackgroundWorker RecoverACC = new BackgroundWorker();
         WebBrowser BROWSER = new WebBrowser();
         public MainWindow()
         {
@@ -38,23 +37,11 @@ namespace ACCOUNTs_RECOVER
             pVar.countCURRENT = 0;
         }
        
-        private async void btnStartCLICK(object sender, RoutedEventArgs e)
-        {
-            RecoverACC.RunWorkerAsync();
-        }
-        private void recoverACC_DoWork(object sender, DoWorkEventArgs e)
+        private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
             BROWSER.BrowserOpen();
         }
-        private void InitializeBackgroundWorker()
-        {
-            RecoverACC.DoWork +=
-            new DoWorkEventHandler(recoverACC_DoWork);
-
-        }
-
-
-
+        
         public void showResult(bool Success)
         {
             string status = "";
