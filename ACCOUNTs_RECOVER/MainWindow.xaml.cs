@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
 using xNet;
@@ -25,9 +24,11 @@ namespace ACCOUNTs_RECOVER
     public partial class MainWindow : Window
     {
         WebBrowser BROWSER = new WebBrowser();
-        public MainWindow()
+        
+        public  MainWindow()
         {
-           InitializeComponent();
+
+            InitializeComponent();
 
             //Logins.Load();
            //mProxy.proxySettings();
@@ -40,11 +41,8 @@ namespace ACCOUNTs_RECOVER
        
         private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
-           // pVar.currentLogin = Logins.nextLogin();
-            //Console.WriteLine(pVar.currentLogin + "CURRREEENT");
-
             chooseProxy();
-            Recover.DO();
+            Recover.Run(Recover.DO);
         }
         
         public void showResult(bool Success)

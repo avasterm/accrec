@@ -25,7 +25,8 @@ namespace ACCOUNTs_RECOVER
         public static ProxyClient proxyClient { get; set; }
         public static Uri uri { get; set; }
         public static string paramReq { get; set; }
-        
+
+        [STAThread]
         public static void sendReq(string action, string LoginEmail, string __cfduid, string cf_clearance)
         {
             MainWindow main = new MainWindow();
