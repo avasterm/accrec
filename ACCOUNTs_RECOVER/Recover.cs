@@ -18,20 +18,20 @@ namespace ACCOUNTs_RECOVER
             WebBrowser BROWSER = new WebBrowser();
             BROWSER.BrowserOpen();
             pVar.counterACCS = 0;
-            while (pVar.counterACCS <= pVar.countALL)
+            
+            while (pVar.counterACCS <= pVar.countALL-1)
             {
-                Thread.Sleep(3000);
-                pVar.currentLogin = Logins.nextLogin();
-                Console.WriteLine(pVar.currentLogin + "CURRREEENT");
+                Thread.Sleep(10000);
+                pVar.currentLogin = Logins.nextLogin(pVar.counterACCS);
                 xNetRequest.sendReq(pVar.mainAction, pVar.currentLogin, pVar.__cfduid, pVar.cf_clearance);
-                Thread.Sleep(3000);
+                Thread.Sleep(10000);
                 if (pVar.counterERRORS <= 1)
                 {
                     while (pVar.counterERRORS == 0)
                     {
-                        Thread.Sleep(3000);
+                        Thread.Sleep(10000);
                         xNetRequest.sendReq(pVar.mainAction, pVar.currentLogin, pVar.__cfduid, pVar.cf_clearance);
-                        Thread.Sleep(3000);
+                        Thread.Sleep(10000);
                     }
                 }
             }

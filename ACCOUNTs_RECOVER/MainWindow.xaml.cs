@@ -40,6 +40,9 @@ namespace ACCOUNTs_RECOVER
        
         private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
+           // pVar.currentLogin = Logins.nextLogin();
+            //Console.WriteLine(pVar.currentLogin + "CURRREEENT");
+
             chooseProxy();
             Recover.DO();
         }

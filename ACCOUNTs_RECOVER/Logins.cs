@@ -34,21 +34,13 @@ namespace ACCOUNTs_RECOVER
 
         }
 
-        public static string nextLogin()
+        public static string nextLogin(int id)
         {
-            pVar.countALL = pVar.listLogins.LongCount();
-            if (pVar.countALL != 0)
-            {
-                pVar.currentLogin = pVar.listLogins.First().ToString();
-                pVar.listLogins.RemoveAt(0);
-            //   Console.WriteLine(pVar.listLogins.Count() + " LOGINS");
-            //    Console.WriteLine(pVar.currentLogin + " CURRENT LOGIN");
+                pVar.currentLogin = pVar.listLogins.ElementAt(id).ToString();
+                //pVar.listLogins.RemoveAt(0);
+               Console.WriteLine(pVar.listLogins.Count() + " LOGINS");
+                Console.WriteLine(pVar.currentLogin + " CURRENT LOGIN");
                 return pVar.currentLogin;
-            }
-            else
-            {
-                return "";
-            }
         }
     }
 }

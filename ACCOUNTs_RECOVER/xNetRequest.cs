@@ -93,7 +93,7 @@ namespace ACCOUNTs_RECOVER
                     result = request.Post(uri).ToString();
                     JsonS jsons = JsonConvert.DeserializeObject<JsonS>(result);
 
-                    if (jsons.Success == true) { pVar.counterACCS++; pVar.counterERRORS = 0; }
+                    if (jsons.Success == true) { pVar.counterACCS++;  pVar.counterERRORS = 0; }
                     else if(jsons.Success == false) { pVar.counterERRORS++; }
                     main.showResult(jsons.Success);
 
