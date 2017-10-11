@@ -44,7 +44,8 @@ namespace ACCOUNTs_RECOVER
 
             try
             {
-
+                Console.WriteLine("PROXY_TYPE: " + mProxy.proxyTYPE);
+                Console.WriteLine("CURRENT_PROXY: " + mProxy.currentProxy);
                 //Thread.Sleep(5000);
                 using (var request = new HttpRequest())
                 {
@@ -52,11 +53,11 @@ namespace ACCOUNTs_RECOVER
                     {
                         string[] proxy = mProxy.currentProxy.Split(':');
 
-                        if (pVar.proxTyp == ProxyType.Http)
+                        if (mProxy.proxyTYPE == "https")
                             proxyClient = new HttpProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
-                        else if (pVar.proxTyp == ProxyType.Socks4)
+                        else if (mProxy.proxyTYPE == "socks4")
                             proxyClient = new Socks4ProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
-                        else if (pVar.proxTyp == ProxyType.Socks5)
+                        else if (mProxy.proxyTYPE == "socks5")
                             proxyClient = new Socks5ProxyClient(proxy[0], Convert.ToInt32(proxy[1]));
 
                         request.Proxy = proxyClient;
@@ -92,14 +93,29 @@ namespace ACCOUNTs_RECOVER
                     result = request.Post(uri).ToString();
                     JsonS jsons = JsonConvert.DeserializeObject<JsonS>(result);
 
-                    
+                    if (jsons.Success == true) { pVar.counterACCS++; pVar.counterERRORS = 0; }
+                    else if(jsons.Success == false) { pVar.counterERRORS++; }
                     main.showResult(jsons.Success);
 
+                    if (pVar.counterERRORS == 3)
+                    {
+                        
+                        WebBrowser BROWSER = new WebBrowser();
+                        BROWSER.BrowserOpen();
+                    }
                     Console.WriteLine("RESULT: " + jsons.Success);
                 }
 
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); result = "lose"; }
+
+            pVar.counterERRORS++;
+            if (pVar.counterERRORS == 3)
+            {
+
+                WebBrowser BROWSER = new WebBrowser();
+                BROWSER.BrowserOpen();
+            }
         }
     }
 }

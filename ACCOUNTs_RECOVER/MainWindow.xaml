@@ -35,11 +35,11 @@
             <Label x:Name="labelRecover" Content="RECOVER:" HorizontalAlignment="Left" Margin="4,-1,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Viewbox Margin="10,79,74,38" Stretch="Fill">
                 <Grid Height="15" Width="222">
-                    <RadioButton x:Name="checkSOCKS5" Content="Socks5" VerticalAlignment="Top" IsChecked="True" Margin="54,0,113,0" Checked="checkSOCKS5_Checked"/>
+                    <RadioButton x:Name="checkSOCKS5" Content="Socks5" VerticalAlignment="Top" IsChecked="True" Margin="54,0,113,0"/>
 
-                    <RadioButton x:Name="checkHTTPs" Content="Https" HorizontalAlignment="Left" Margin="174,0,0,0" VerticalAlignment="Top" Checked="checkHTTPs_Checked"/>
-                    <RadioButton x:Name="checkSOCKS4" Content="Socks4" VerticalAlignment="Top" IsChecked="True" Margin="114,0,53,0" Checked="checkSOCKS4_Checked"/>
-                    <RadioButton x:Name="checkNONE" Content="None" VerticalAlignment="Top" IsChecked="True" Margin="0,0,167,0" Checked="checkNONE_Checked"/>
+                    <RadioButton x:Name="checkHTTPs" Content="Https" HorizontalAlignment="Left" Margin="174,0,0,0" VerticalAlignment="Top"/>
+                    <RadioButton x:Name="checkSOCKS4" Content="Socks4" VerticalAlignment="Top" IsChecked="True" Margin="114,0,53,0"/>
+                    <RadioButton x:Name="checkNONE" Content="None" VerticalAlignment="Top" IsChecked="True" Margin="0,0,167,0"/>
                 </Grid>
             </Viewbox>
             <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Left" Margin="211,109,0,0" VerticalAlignment="Top" Width="82" Background="#FF6C1900" Foreground="White" FontSize="14" FontFamily="Arial Black" Height="36" Click="btnStartCLICK" Grid.RowSpan="2"/>

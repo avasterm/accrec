@@ -23,7 +23,7 @@ namespace ACCOUNTs_RECOVER
 
         public void BrowserSettings()
         {
-            
+            mProxy.currentProxy = mProxy.nextProxy();
             //DEFAULT BROWSER SETTINGS
             UserAgent = "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36";
             WEB_settings.AddArgument(string.Format("--ignore-ssl-errors=true"));
@@ -32,7 +32,7 @@ namespace ACCOUNTs_RECOVER
             WEB_settings.AddArgument(string.Format("--web-security=false"));
             if (mProxy.proxyTYPE != "none")
             {
-                WEB_settings.AddArgument(string.Format("--proxy={0}", mProxy.nextProxy()));
+                WEB_settings.AddArgument(string.Format("--proxy={0}", mProxy.currentProxy));
                 WEB_settings.AddArgument(string.Format("--proxy-type={0}", mProxy.proxyTYPE));
             }
             Console.WriteLine(mProxy.proxyTYPE + "_type");
@@ -82,7 +82,7 @@ namespace ACCOUNTs_RECOVER
                 shoot("GOOD");
                 GetCookies();
 
-                Recover.DO(pVar.__cfduid,pVar.cf_clearance);
+                
 
                 WEB_Browser.Quit();
             }

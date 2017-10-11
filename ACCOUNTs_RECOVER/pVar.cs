@@ -19,7 +19,10 @@ namespace ACCOUNTs_RECOVER
         public static int countCURRENT;
         public static int countGOOD;
         public static int countERROR;
-        
+
+        public static int counterACCS;
+        public static int counterERRORS;
+
         public static string __cfduid;
         public static string cf_clearance;
         public static StreamReader sr_logins;

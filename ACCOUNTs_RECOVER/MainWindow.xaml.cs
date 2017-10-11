@@ -29,17 +29,19 @@ namespace ACCOUNTs_RECOVER
         {
            InitializeComponent();
 
-            Logins.Load();
-           // mProxy.proxySettings();
+            //Logins.Load();
+           //mProxy.proxySettings();
             pVar.countProxy = 0;
             pVar.countGOOD = 0;
             pVar.countERROR = 0;
             pVar.countCURRENT = 0;
+            //chooseProxy();
         }
        
         private void btnStartCLICK(object sender, RoutedEventArgs e)
         {
-            BROWSER.BrowserOpen();
+            chooseProxy();
+            Recover.DO();
         }
         
         public void showResult(bool Success)
@@ -79,53 +81,48 @@ namespace ACCOUNTs_RECOVER
         private void reqLogins_Checked(object sender, RoutedEventArgs e)
         {
             pVar.mainAction = "EMAILS";
-            Logins.Load();
-            countAll.Content = pVar.countALL;
-       
+            chooseTypeOfList();
+
         }
 
         private void reqPasswords_Checked(object sender, RoutedEventArgs e)
         {
             pVar.mainAction = "LOGINS";
+            chooseTypeOfList();
+        }
+
+
+
+        public void chooseProxy()
+        {
+
+            if (checkSOCKS5.IsChecked == true)
+            {
+                mProxy.proxyTYPE = "socks5";
+            }
+            else if (checkSOCKS4.IsChecked == true)
+            {
+                mProxy.proxyTYPE = "socks4";
+            }
+            else if (checkHTTPs.IsChecked == true)
+            {
+                mProxy.proxyTYPE = "https";
+            }
+            else if (checkNONE.IsChecked == true)
+            {
+                mProxy.proxyTYPE = "none";
+                pVar.countProxy = 0;
+            }
+            
+            mProxy.proxySettings();
+            countProxiesALL.Content = pVar.countProxy.ToString();
+        }
+
+        public void chooseTypeOfList()
+        {
             Logins.Load();
             countAll.Content = pVar.countALL;
-           
         }
-
-        private void checkNONE_Checked(object sender, RoutedEventArgs e)
-        {
-            mProxy.proxyTYPE = "none";
-            Console.WriteLine("none");
-            pVar.countProxy = 0;
-            countProxiesALL.Content = pVar.countProxy.ToString();
-        }
-
-
-        private void checkSOCKS5_Checked(object sender, RoutedEventArgs e)
-        {
-            mProxy.proxyTYPE = "socks5";
-            Console.WriteLine("socks5");
-            mProxy.proxySettings();
-            countProxiesALL.Content = pVar.countProxy.ToString();
-        }
-
-        private void checkSOCKS4_Checked(object sender, RoutedEventArgs e)
-        {
-            mProxy.proxyTYPE = "socks4";
-            Console.WriteLine("socks4");
-            mProxy.proxySettings();
-            countProxiesALL.Content = pVar.countProxy.ToString();
-        }
-
-        private void checkHTTPs_Checked(object sender, RoutedEventArgs e)
-        {
-            mProxy.proxyTYPE = "https";
-            Console.WriteLine("https");
-            mProxy.proxySettings();
-            countProxiesALL.Content = pVar.countProxy.ToString();
-        }
-
-
 
         }
 

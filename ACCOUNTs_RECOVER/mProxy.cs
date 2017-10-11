@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ACCOUNTs_RECOVER
 {
-    class mProxy
+  public class mProxy
     {
         public static string proxyTYPE;
         public static StreamReader sr_proxy;
@@ -26,8 +26,8 @@ namespace ACCOUNTs_RECOVER
 
                     // GET PROXY BY LINK
                     WebClient WebClientForProxy = new WebClient();
-                //string uriString = "http://104.197.166.190/" + proxyTYPE + ".txt";
-                string uriString = "http://80.78.251.153/?controller=api&hwid=322b3925ea10af62322007f797645453&type=" + proxyTYPE;
+               string uriString = "http://35.184.197.58/white_" + proxyTYPE + ".txt";
+               // string uriString = "http://80.78.251.153/?controller=api&hwid=322b3925ea10af62322007f797645453&type=" + proxyTYPE;
                     Stream webProxyListStream = WebClientForProxy.OpenRead(uriString);
                     sr_proxy = new StreamReader(webProxyListStream);
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +11,33 @@ namespace ACCOUNTs_RECOVER
 {
     public class Recover
     {
-        WebBrowser BROWSER = new WebBrowser();
+        
 
-        public static void DO(string __cfduid, string cf_clearance)
+        public static void DO()
         {
-
-            pVar.currentLogin = Logins.nextLogin();
-            Console.WriteLine(pVar.currentLogin + "CURRREEENT");
-            xNetRequest.sendReq(pVar.mainAction, pVar.currentLogin, __cfduid, cf_clearance);
+            WebBrowser BROWSER = new WebBrowser();
+            BROWSER.BrowserOpen();
+            pVar.counterACCS = 0;
+            while (pVar.counterACCS <= pVar.countALL)
+            {
+                Thread.Sleep(3000);
+                pVar.currentLogin = Logins.nextLogin();
+                Console.WriteLine(pVar.currentLogin + "CURRREEENT");
+                xNetRequest.sendReq(pVar.mainAction, pVar.currentLogin, pVar.__cfduid, pVar.cf_clearance);
+                Thread.Sleep(3000);
+                if (pVar.counterERRORS <= 1)
+                {
+                    while (pVar.counterERRORS == 0)
+                    {
+                        Thread.Sleep(3000);
+                        xNetRequest.sendReq(pVar.mainAction, pVar.currentLogin, pVar.__cfduid, pVar.cf_clearance);
+                        Thread.Sleep(3000);
+                    }
+                }
+            }
+            
+            
+            
             
             
             
